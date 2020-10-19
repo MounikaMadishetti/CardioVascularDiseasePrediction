@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<style>
+    table{
+    border: 10px solid black;
+     background-color: lightblue;
+     border-radius:10px;
+     margin-top: 10px;
+    }
+    td{
+    padding:10px;
+    }
+    button{
+    background-color: lightblue;
+    margin-left: -30px;
+    }
+
+</style>
+</head>
+
+<body style="background-image: url({{ url_for('static', filename='heart3.jpg') }});   background-position: center;
+  background-repeat: no-repeat; background-size: cover;">
+ <h3 class="login">
+	<h1 align="center">Cardio Vascular Disease Prediction</h1>
+
+ <form action="{{ url_for('predict')}}"method="post">
+        <TABLE align="center">
+            <tr>
+                <td>
+ <label for="name">Name: </label>
+                </td>
+                 <td>
+                    	<input type="text" name="name" placeholder="Enter your name" required="required" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+ <label for="email">Email: </label>
+                </td>
+                 <td>
+                    	<input type="text" name="email" placeholder="Enter your email" required="required" />
+                </td>
+            </tr>
+
+            <tr>
+
+            <td>
+                        <label for="age">Age: </label>
+
+            </td>
+                <td>
+                    	<input type="text" name="age" placeholder="age in years" required="required" />
+                </td>
+                <br>
+            </tr>
+             <tr>
+            <td>
+                        <label for="gender">Gender: </label>
+
+            </td>
+                <td>
+                    	<select name="gen" id="gender">
+							<option value="1">Female      </option>
+							<option value="2">Male       </option>
+						</select>
+                </td>
+            </tr>
+            <tr>
+            <td>
+                        <label for="Height">Height: </label>
+
+            </td>
+                <td>
+                    	<input type="text" name="height" placeholder="Height in cms" required="required" />
+                </td>
+            </tr>
+             <tr>
+            <td>
+                        <label for="Weight">Weight: </label>
+
+            </td>
+                <td>
+                    	<input type="text" name="weight" placeholder="Weight in kgs" required="required" />
+                </td>
+            </tr>
+             <tr>
+            <td>
+                        <label for="sbp">Systolic Blood Pressure: </label>
+
+            </td>
+                <td>
+                    	<input type="text" name="sbp" placeholder="enter Sys. blood pressure" required="required" />
+                </td>
+            </tr>
+            <tr>
+            <td>
+                        <label for="dbp">Diastolic Blood Pressure: </label>
+
+            </td>
+                <td>
+                    	<input type="text" name="dbp" placeholder="enter dia. blood pressure" required="required" />
+                </td>
+            </tr>
+            <tr>
+            <td>
+                        <label for="cholesterol">Cholesterol Level: </label>
+
+            </td>
+                <td>
+                    	<select name="chol" id="chol">
+							<option value="1">Normal</option>
+							<option value="2">Above Normal</option>
+                            <option value="3">Well Above Normal</option>
+						</select>
+                </td>
+            </tr>
+            <tr>
+            <td>
+                        <label for="glucose">Glucose Level: </label>
+
+            </td>
+                <td>
+                    	<select name="gluc" id="gluc">
+							<option value="1">Normal</option>
+							<option value="2">Above Normal</option>
+                            <option value="3">Well Above Normal</option>
+						</select>
+                </td>
+            </tr>
+            <tr>
+            <td>
+                        <label for="smoke">Smoke addict? </label>
+
+            </td>
+                <td>
+                    	<select name="smk" id="smk">
+							<option value="1">Yes</option>
+							<option value="0">No</option>
+                        </select>
+                </td>
+            </tr>
+             <tr>
+            <td>
+                        <label for="alchohol">Alcohol addict? </label>
+
+            </td>
+                <td>
+                    	<select name="alk" id="alk">
+							<option value="1">Yes</option>
+							<option value="0">No</option>
+                        </select>
+                </td>
+            </tr>
+
+            <tr>
+            <td>
+                        <label for="physical">Physical activity </label>
+
+            </td>
+                <td>
+                    	<select name="phy" id="phy">
+							<option value="1">Regular</option>
+							<option value="0">Sometimes</option>
+                        </select>
+                </td>
+            </tr>
+
+            <tr><td></td>
+                <td>
+                     <button type="submit"  class="btn btn-primary btn-block btn-large">Predict</button>
+                </td>
+            </tr>
+
+        </TABLE>
+
+    </form>
+
+   <br>
+   <br>
+  <h3 align = "center"> {{ prediction_text }} </h3>
+     <br>
+     <h3 align = "center">Learn more about Cardio Vascular Disease <a href = "https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)">here</a></h3>
+ </div>
+
+
+</body>
+</html>
